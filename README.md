@@ -1,8 +1,11 @@
-# gmkey/cups-avahi-airprint
+# albizrik/cups-avahi-airprint
 
 Fork from [chuckcharlie/cups-avahi-airprint](https://github.com/chuckcharlie/docker-cups-airprint) which was forked from [quadportnick/docker-cups-airprint](https://github.com/quadportnick/docker-cups-airprint)
 
 This Alpine-based Docker image runs a CUPS instance with HPLIP drivers that is meant as an AirPrint relay for printers that are already on the network but not AirPrint capable. The other images out there never seemed to work right. I forked the original to use Alpine instead of Ubuntu and work on more host OS's.
+
+albizrik: fixed a python import statement wich prevented the printer to be discovered by my iphone/ipad
+tested and running on my QNAP Nas
 
 ## Configuration
 
@@ -30,7 +33,7 @@ docker run --name cups --restart unless-stopped  --net host\
   -v <your config dir>:/config \
   -e CUPSADMIN="<username>" \
   -e CUPSPASSWORD="<password>" \
-  gmkey/cups-avahi-airprint:latest
+  albizrik/cups-avahi-airprint:latest
 ```
 
 ## Add and set up printer
@@ -53,7 +56,7 @@ docker build -t $DH_ACC/DH_REPO:$TAG .
 In my case:
 
 ```bash
-docker build -t gmkey/cups-avahi-airprint:latest . 
+docker build -t albizrik/cups-avahi-airprint:latest . 
 ```
 
 ### Push your files to dockerhub
@@ -67,5 +70,5 @@ sudo docker push $DOCKER_ACC/$DOCKER_REPO:$TAG
 In my case:
 
 ```bash
-sudo docker push gmkey/cups-avahi-airprint:latest
+sudo docker push albizrik/cups-avahi-airprint:latest
 ```

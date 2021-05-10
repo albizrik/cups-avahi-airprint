@@ -23,7 +23,7 @@ THE SOFTWARE.
 """
 
 import cups, os, optparse, re
-import urllib
+import urllib.parse
 import os.path
 from io import StringIO
 
